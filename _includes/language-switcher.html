@@ -1,0 +1,31 @@
+{% if page.translation_id %}
+  {% assign translations = site.posts | where: "translation_id", page.translation_id %}
+
+  {% if translations.size > 1 %}
+    <div class="language-switcher">
+      {% for translation in translations %}
+        {% if translation.lang == page.lang %}
+          <strong>
+            {% if translation.lang == "ko" %}
+              한국어
+            {% else %}
+              English
+            {% endif %}
+          </strong>
+        {% else %}
+          <a href="{{ translation.url | relative_url }}">
+            {% if translation.lang == "ko" %}
+              한국어
+            {% else %}
+              English
+            {% endif %}
+          </a>
+        {% endif %}
+
+        {% unless forloop.last %}
+          <span aria-hidden="true"> | </span>
+        {% endunless %}
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endif %}

@@ -26,6 +26,11 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 locale: "en-US"
 
+default_lang: en
+languages:
+  - en
+  - ko
+
 # Build settings
 markdown: kramdown
 remote_theme: "mmistakes/minimal-mistakes@4.28.0"
